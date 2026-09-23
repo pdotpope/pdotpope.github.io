@@ -1,33 +1,40 @@
 ---
 icon: material/hand-front-right
+tags:
+  - Elixir
+  - Phoenix
+  - PostgreSQL
+  - Full-Stack
 ---
 
 # SignCraft
-> [🌐 Live Application](https://signcraft.peytonjpope.com)
 
-*A resource for ASL learners to maintain vocabulary and practice grammar, with the intention of promoting Deaf community engagement*
+> *A resource for ASL learners to maintain vocabulary and practice grammar, with the intention of promoting Deaf community engagement*
 
 ![App Preview](../assets/signcraftdemo.gif)
 
-## Features
+## Overview
 
-- **Grow and maintain your ASL vocabulary** with word bank for review and long-term retention.
+- A full-stack Phoenix web app backed by a relational PostgreSQL schema and deployed with Docker
+- **Grow and maintain your ASL vocabulary** with a word bank for review and long-term retention
+- **Practice ASL-specific grammar patterns** through contextual sentence building that reflects natural language use
+- **Promote engagement with the Deaf community** by learning vocabulary and expressions rooted in real-world, culturally relevant contexts
 
-- **Practice ASL-specific grammar patterns** through contextual sentence building that reflects natural language use.
+## Tech Stack
 
-- **Promote engagement with the Deaf community** and culture by learning vocabulary and expressions rooted in real-world, culturally relevant contexts.
+| Layer | Tools |
+|---|---|
+| **Backend** | Phoenix (Elixir/Erlang) |
+| **Database** | PostgreSQL with Ecto |
+| **Frontend** | Phoenix HEEx, Tailwind CSS |
+| **Deployment** | Fly.io, Docker |
 
-## Technical used
-- Backend Framework: Phoenix (Elixir/Erlang)
-- Database: PostgreSQL with Ecto
-- Frontend: Phoenix HEEX with Tailwind CSS
-- Deployment: Fly.io with Docker
+## Skills Developed
 
-## Skills developed
-- Database relationships and migrations
-- Web app framework
-- RDMS deployment
+- Relational database design, relationships, and migrations
+- Full-stack web app framework (MVC in Phoenix)
+- Containerized deployment of a database-backed app
 
 ---
 
-_View the_ [Source Code](https://github.com/peytonjpope/signcraft)
+[:fontawesome-brands-github: Source Code](https://github.com/pdotpope/signcraft){ .md-button .md-button--primary target="_blank" rel="noopener" }

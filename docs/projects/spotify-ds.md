@@ -1,23 +1,40 @@
 ---
 icon: material/music-note-eighth
+tags:
+  - R
+  - Market Basket Analysis
+  - Data Mining
 ---
+
 # Spotify Pattern Mining Recommendations
-> [🌐 View Project](../assets/321-Lab-7.html)
 
-*Market basket analysis on 1M+ Spotify listening records to surface high-confidence music recommendation rules*
+> *Market basket analysis on 1M+ Spotify listening records to surface high-confidence music recommendation rules*
 
-![Preview](../assets/spotify-ss.jpg)
+[:material-file-document-outline: Case Study](../assets/321-Lab-7.html){ .md-button .md-button--primary target="_blank" rel="noopener" }
 
-### Key Features
+:material-lock-outline: *Source private — academic coursework. [Available upon request](https://github.com/pdotpope/spotify-pattern-mining).*
 
-- Built three transaction sets (artist, track, artist+track) from 742K cleaned Spotify records using user-level market basket framing
-- Compared Apriori and ECLAT algorithms across speed, memory, and rule quality — Apriori won both benchmarks
-- Surfaced top rules by lift (e.g. Daft Punk catalog co-listens, genre clusters like hip-hop and pop trios) with actionable recommendation pitch
+![Case Study Preview](../assets/spotify-ss.jpg)
 
-### Technology Used
+## Overview
 
-- R · arules · arulesViz · dplyr · ggplot2 · plotly · Quarto
-- Apriori & ECLAT with support/confidence/lift tuning
-- Memory profiling via Rprofmem and process timing via proc.time
+- Frames each user's listening history as a "basket" and mines association rules to find artists and tracks that are reliably co-listened — the basis for a simple recommendation engine
+- **Built three transaction sets** (artist, track, artist+track) from 742K cleaned Spotify records using user-level market basket framing
+- **Benchmarked Apriori vs. ECLAT** across speed, memory, and rule quality — Apriori won both benchmarks
+- **Surfaced top rules by lift** (e.g. Daft Punk catalog co-listens, hip-hop and pop trios) with an actionable recommendation pitch
 
----
+## Tech Stack
+
+| Layer | Tools |
+|---|---|
+| **Data Prep** | R, dplyr |
+| **Mining** | arules (Apriori & ECLAT; support/confidence/lift tuning) |
+| **Visualization** | arulesViz, ggplot2, plotly |
+| **Profiling** | Rprofmem, proc.time |
+| **Reporting** | Quarto |
+
+## Skills Developed
+
+- Association rule mining and parameter tuning
+- Algorithm benchmarking (runtime and memory)
+- Translating statistical output into business recommendations

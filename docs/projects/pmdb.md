@@ -1,33 +1,42 @@
 ---
 icon: material/movie-open
+tags:
+  - Python
+  - Snowflake
+  - dbt
+  - ETL
+  - Streamlit
+  - Data Modeling
 ---
 
 # PMDb
 
-> [🌐 Live Application](https://pmoviedb.streamlit.app)
+> *Interactive web app showcasing a Snowflake database of 37,000+ films with IMDb and Letterboxd ratings*
 
-*Interactive web app showcasing a Snowflake database of 37,000+ films with IMDb and Letterboxd ratings*
+[:material-web: Live Site](https://pmoviedb.streamlit.app){ .md-button .md-button--primary target="_blank" rel="noopener" }
 
 ![App Preview](../assets/pmdb-ss.jpg)
 
----
+## Overview
 
-## Features
+- An end-to-end medallion pipeline: raw Kaggle datasets land in Snowflake as bronze tables, dbt models clean and join them into silver and gold layers, and a Streamlit app presents the results
+- **Explore film rankings across multiple rating systems** with leaderboards filtering by decade, popularity, and rating
+- **Compare IMDb vs Letterboxd lean** using rating differentials to highlight where the platforms disagree most
 
-* **Explore film rankings across multiple rating systems** with leaderboards filtering by decade, popularity, and rating
+## Tech Stack
 
-* **Compare IMDb vs Letterboxd lean** using rating differentials to highlight where the platforms disagree most
-
----
-
-## Data Pipeline Architecture
-
-| Layer | Tool | Description |
+| Layer | Tools | Description |
 |---|---|---|
-| **Ingestion** | Python, Snowflake Connector | Python script loading raw Kaggle datasets into Snowflake database as *bronze* tables |
-| **Modeling** | dbt Core | Standardize types and filter nulls to create *silver* tables, Join both platforms on title + year then compute composite ratings and differentials into *gold* table |
-| **Presentation** | Streamlit, Plotly, Snowflake SQLAlchemy | Query Gold table live from Snowflake and render interactive charts and film lookup |
+| **Ingestion** | Python, Snowflake Connector | Loads raw Kaggle datasets into Snowflake as *bronze* tables |
+| **Modeling** | dbt Core | Standardizes types and filters nulls into *silver* tables, then joins both platforms on title + year to compute composite ratings and differentials in a *gold* table |
+| **Presentation** | Streamlit, Plotly | Renders interactive charts and film lookup from a periodic static export of the gold table |
+
+## Skills Developed
+
+- Medallion (bronze/silver/gold) architecture
+- Transformation modeling with dbt
+- Cloud data warehousing in Snowflake
 
 ---
 
-*View the* [Source Code](https://github.com/peytonjpope/pmdb)
+[:fontawesome-brands-github: Source Code](https://github.com/pdotpope/pmdb){ .md-button .md-button--primary target="_blank" rel="noopener" }

@@ -1,21 +1,39 @@
 ---
 icon: material/web
+tags:
+  - Markdown
+  - MkDocs
 ---
+
 # Portfolio Website
-> 🌐 [peytonjpope.com](https://peytonjpope.com)
 
-### Tech Used
-- Markdown (documents)
-- Material for MkDocs (framework)
-- Github Pages (web-hosting)
-- NameCheap (domain leasing)
+> *This site — a documentation-style portfolio built with Material for MkDocs*
 
-### Skills Developed
-- Domain management
-- Static website hosting
-- Documentation-style framework
+[:material-web: Live Site](https://pdot.dev){ .md-button .md-button--primary target="_blank" rel="noopener" }
+
+<!-- TODO: add preview image -->
+
+## Overview
+
+- Markdown pages compiled to a static site by MkDocs, hosted on GitHub Pages under a custom domain
+- **Project pages from a shared template** with tags and a skills index
+- **Custom home page** via Material theme overrides
+
+## Tech Stack
+
+| Layer | Tools |
+|---|---|
+| **Content** | Markdown |
+| **Framework** | Material for MkDocs |
+| **Hosting** | GitHub Pages |
+| **Domain** | Namecheap |
+
+## Skills Developed
+
+- Domain management and DNS
+- Static site hosting
+- Documentation-style site frameworks
 
 ---
 
-_View the_ [Source Code](https://github.com/peytonjpope/peytonjpope.github.io)  
-
+[:fontawesome-brands-github: Source Code](https://github.com/pdotpope/pdotpope.github.io){ .md-button .md-button--primary target="_blank" rel="noopener" }

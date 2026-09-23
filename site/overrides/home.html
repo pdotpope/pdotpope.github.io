@@ -153,7 +153,7 @@ html {
 
 /* Primary button (red like "Get started") */
 .hero-buttons .md-button--primary {
-  background-color: #587383;  /* Material pink/red */
+  background-color: #587383; 
   color: white;
   border: none;
 }
@@ -186,80 +186,219 @@ html {
   text-align: center;
 }
 
-/* Project grid layout - 2x2 grid */
-.project-grid {
-  display: grid;
-  grid-template-columns: 1;
-  gap: 1rem;
-  margin: 2rem auto 3rem auto;
-  max-width: 700px;
-  margin-bottom: 50;
+/* About/Background section - same card treatment as Featured Projects
+   below (title + one-line description) for a consistent feel */
+.home-about {
+  margin: 5rem auto;
+  max-width: 1200px;
+  padding: 0 2rem;
+  text-align: center;
 }
 
-/* Individual project cards - rounded rectangles like the image */
-.project {
+/* Shared card template used by both the About (Education/Experience) and
+   Featured Projects sections - a media tile on the left, vertically
+   centered against the whole card, with title/meta/description beside it */
+.card {
   background-color: #f5f5f500;
   border: 1px solid #4d4d4d;
-  border-radius: .5rem;
-  padding: 2rem 1.5rem;
+  border-radius: .4rem;
+  padding: 0.75rem 0.9rem;
   text-align: left;
   transition: all 0.3s ease;
-  cursor: pointer;
-  min-height: 120px;
-  min-width: 100%;
-  max-width: 600px;
+  /* width:100% of the grid column (not min/max-width) so every card in
+     every section is pinned to the same, single, unambiguous width */
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.85rem;
 }
 
-.project:hover {
-  transform: translateY(-4px);
+/* Media tile - fixed footprint so photo logos and tech-stack icons line
+   up identically regardless of card type */
+.card-media {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* About cards: framed photo logo */
+.card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 2px solid #4d4d4d;
+}
+
+/* Project cards: single tech-stack icon, no frame - just the accent color
+   via currentColor (the Simple Icons SVGs ship with no hardcoded fill).
+   Material hardcodes .md-icon svg to a fixed 1.2rem width/height, so
+   font-size on this span does nothing - the svg itself has to be resized. */
+.card-icon {
+  color: #587383;
+}
+
+.card-icon svg {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Section headings - tight, consistent top/bottom rhythm instead of the
+   browser's default heading margins */
+.home-about h1,
+.home-projects h1 {
+  margin: 0 0 1rem 0;
+  color: white;
+}
+
+.home-about h1:not(:first-child) {
+  margin-top: 2.5rem;
+}
+
+/* Project grid layout - single column, full track width so every card in
+   every section resolves to the same width instead of shrinking to fit
+   its own content (grid-template-columns: 1 is an invalid value and gets
+   dropped, which is what caused that per-section width drift) */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  margin: 0.5rem auto 3rem auto;
+  max-width: 700px;
+}
+
+/* Hover feedback only applies to cards that are actually links */
+.card-link .card {
+  cursor: pointer;
+}
+
+.card-link:hover .card {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   background-color: #58738307;
   border: 1px solid #587383;
 }
 
-/* Project titles - bold and prominent */
-.project h2 {
-  margin: 0 0 0.5rem 0;
+/* Card titles - bold and prominent, tight against the meta line below */
+.card h2 {
+  margin: 0 0 0.15rem 0;
+  font-size: 1.1rem;
+  color: var(--md-default-fg-color) !important;
 }
 
-
-.project-header {
-  display: flex;
-  align-items: center; /* vertically align icons with h2 */
-  gap: 1rem; /* space between h2 and icons */
+/* Meta line - org/dates on About cards, tools-used text on Project cards.
+   Needs the same forced color as the title/description: it sits inside the
+   card-link anchor and would otherwise inherit Material's default link blue */
+.card-meta {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin: 0 0 0.3rem 0;
+  color: var(--md-default-fg-color) !important;
 }
 
-.project-header .icons {
-  display: flex;
-  gap: 0.4rem; /* space between icons */
-  color: #ffffff6d;
-}
-
-
-/* Project descriptions */
-.project p {
-  margin: 0;
+/* Card descriptions - locked color so it never follows link visited/hover
+   state, and never inherits list/description default margins */
+.card p {
+  color: var(--md-default-fg-color) !important;
   font-style: italic;
+  margin: 0;
+  font-size: 0.75rem;
 }
 
 /* Remove link styling - no colors, no underlines */
-.project-link {
+.card-link {
   text-decoration: none;
   color: inherit;
   display: block;
 }
 
-.project-link:hover:visited {
+.card-link:hover:visited {
   color: inherit;
   text-decoration: none;
 }
 
-.project-link:visited {
+.card-link:visited {
   text-decoration: none;
   color: inherit;
+}
+
+/* Footer social links - minimal, just the icon, no button chrome */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 1rem auto 4rem auto;
+}
+
+/* !important needed here for the same reason as .card-meta above: Material's
+   own .md-typeset a link-color rule otherwise wins over a plain class and
+   the icons render in the theme's link blue instead of a plain grey */
+.social-icon,
+.social-icon:visited {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffffb3 !important;
+  font-size: 1.5rem;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover,
+.social-icon:visited:hover {
+  color: #ffffff !important;
+}
+
+/* Thin centered rule marking the break between the About and Projects
+   sections - narrower than the content column so it reads as a subtle
+   divider rather than a full-width rule. !important throughout for the
+   same reason as the other overrides above: Material's .md-typeset hr
+   rule outranks a plain class and otherwise wins on margin/border. */
+.section-divider {
+  width: 90% !important;
+  height: 1px !important;
+  margin: 0 auto !important;
+  border: none !important;
+  background-color: #4d4d4d !important;
+}
+
+/* Liberty University group - the degree card followed by role subcards
+   (Genworth, SAM Fund, Tutor, Shepherd), all flush-left and the same
+   width/style as any other card, just spaced apart instead of stacked. */
+.edu-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+/* Role subcards (Genworth, SAM Fund, Tutor, Shepherd) read as subordinate
+   to the degree card above them - indented in from the left with the
+   right edge still flush, and slightly smaller media/text throughout */
+.edu-stack .subcard {
+  margin-left: 1rem;
+  width: calc(100% - 2rem);
+}
+
+.edu-stack .subcard .card-media {
+  width: 56px;
+  height: 56px;
+}
+
+.edu-stack .subcard h2 {
+  font-size: 1rem;
+}
+
+.edu-stack .subcard .card-meta {
+  font-size: 0.7rem;
 }
 
 /* Mobile responsive adjustments */
@@ -270,27 +409,64 @@ html {
     max-width: none;
   }
   
-  .project {
-    padding: 1.5rem 1.25rem;
-    min-height: 100px;
-  }
-  
-  .project h2 {
-    font-size: 1rem;
-  }
-  
-  .project p {
-    font-size: 0.75rem;
-  }
-  
   .home-projects {
     margin: 3rem auto;
     padding: 0 1rem;
   }
-  
-  .home-projects h1 {
-    font-size: 1rem;
-    margin-bottom: 2rem;
+
+  .home-about h1:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  /* Shrink every card (Education, Experience, Projects) on phones/tablets -
+     full desktop scale leaves too little room for the title/meta text */
+  .card {
+    padding: 0.6rem 0.75rem;
+    gap: 0.65rem;
+  }
+
+  .card-media {
+    width: 50px;
+    height: 50px;
+  }
+
+  .card-icon svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .card h2 {
+    font-size: 0.95rem;
+  }
+
+  .card-meta {
+    font-size: 0.68rem;
+  }
+
+  .card p {
+    font-size: 0.68rem;
+  }
+
+  /* Shrink the role subcards further on phones/tablets - at full card
+     scale they crowd out the indent and dominate the degree card above them */
+  .edu-stack .subcard {
+    margin-left: 0.85rem;
+    width: calc(100% - 0.85rem);
+    padding: 0.5rem 0.6rem;
+    gap: 0.6rem;
+  }
+
+  .edu-stack .subcard .card-media {
+    width: 38px;
+    height: 38px;
+  }
+
+  .edu-stack .subcard h2 {
+    font-size: 0.8rem;
+  }
+
+  .edu-stack .subcard .card-meta {
+    font-size: 0.62rem;
   }
 }
 
@@ -298,11 +474,7 @@ html {
 @media screen and (max-width: 76.25em) and (min-width: 60em) {
   .project-grid {
     max-width: 700px;
-    gap: 1.5rem;
-  }
-  
-  .project {
-    padding: 1.75rem 1.25rem;
+    gap: 1rem;
   }
 }
 
@@ -347,16 +519,12 @@ html {
   
   .home-projects h1 {
     font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin: 0 0 0.75rem 0;
   }
-  
+
   .project-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .project {
-    padding: 1.5rem 1.25rem;
+    gap: 0.65rem;
   }
 }
 
@@ -400,63 +568,166 @@ html {
   <div class="hero-content">
     <h1>Hello, I'm Peyton</h1>
     <div class="hero-buttons">
-      <a href="#projects" class="md-button md-button--primary">My Work</a>
-      <a href="/about" class="md-button">My Info</a>
+      <a href="#projects" class="md-button md-button--primary">Projects</a>
+      <a href="#about" class="md-button">About Me</a>
     </div>
   </div>
-  <a href="#projects">
+  <a href="#about">
     <div class="arrow">
       <span class="md-icon">{% include ".icons/material/arrow-down.svg" %}</span>
     </div>
   </a>
 </section>
 
+<section class="home-about" id="about">
+
+  <h1>My Background</h1>
+
+  <div class="project-grid">
+
+    <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-media"><img src="../assets/logos/tmeic-logo.png" class="card-photo" alt="TMEIC"></div>
+        <div class="card-body">
+          <h2>Applications, AI &amp; ML Intern</h2>
+          <div class="card-meta">TMEIC · Summer 2026</div>
+
+        </div>
+      </div>
+    </a>
+
+    <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-media"><img src="../assets/logos/pbt-logo.png" class="card-photo" alt="Pioneer Bible Translators"></div>
+        <div class="card-body">
+          <h2>Software Development Intern</h2>
+          <div class="card-meta">Pioneer Bible Translators · Summer 2025</div>
+
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+
+  <div class="project-grid">
+
+    <div class="edu-stack">
+      <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="card-media"><img src="../assets/logos/lu-logo.jpg" class="card-photo" alt="Liberty University"></div>
+          <div class="card-body">
+            <h2>B.S. Computer Science: Data Science</h2>
+            <div class="card-meta">Liberty University · 2027 (expected)</div>
+
+          </div>
+        </div>
+      </a>
+
+      <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+        <div class="card subcard">
+          <div class="card-media"><img src="../assets/logos/genworth-logo.png" class="card-photo" alt="Genworth"></div>
+          <div class="card-body">
+            <h2>Capstone Team Member</h2>
+            <div class="card-meta">Genworth · Aug 2026 - Present</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+        <div class="card subcard">
+          <div class="card-media"><img src="../assets/logos/samfund-logo.jpg" class="card-photo" alt="Student Asset Management Fund"></div>
+          <div class="card-body">
+            <h2>Junior Analyst, Quantitative Research Group</h2>
+            <div class="card-meta">Student Asset Management Fund · Aug 2026 - Present</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+        <div class="card subcard">
+          <div class="card-media"><img src="../assets/logos/casas-logo.jpeg" class="card-photo" alt="Liberty University"></div>
+          <div class="card-body">
+            <h2>Computer Science Tutor</h2>
+            <div class="card-meta">Liberty University · Dec 2024 - May 2026</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+        <div class="card subcard">
+          <div class="card-media"><img src="../assets/logos/osd-logo.jpeg" class="card-photo" alt="Liberty University"></div>
+          <div class="card-body">
+            <h2>Resident Shepherd</h2>
+            <div class="card-meta">Liberty University · Feb 2024 - May 2026</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+
+
+
+</section>
+
+<hr class="section-divider">
+
 <section class="home-projects" id="projects">
   <h1>Featured Projects</h1>
   <div class="project-grid">
-    
-    <a href="/projects/signcraft" class="project-link">
-      <div class="project">
-        <div class="project-header">
-          <h2>SignCraft</h2>
-          <div class="icons">
-            <span class="md-icon logo">{% include ".icons/simple/phoenixframework.svg" %}</span>
-            <span class="md-icon logo">{% include ".icons/simple/postgresql.svg" %}</span>
-            <span class="md-icon logo">{% include ".icons/simple/flydotio.svg" %}</span>
-          </div>
-        </div>
-        <p>Live Phoenix Web-App with Database for learning ASL</p>
-      </div>
-    </a>
 
-    <a href="/projects/cfp-predictor" class="project-link">
-      <div class="project">
-        <div class="project-header">
-          <h2>College Football Playoff Predictor</h2>
-          <div class="icons">
-            <span class="md-icon logo">{% include ".icons/simple/kaggle.svg" %}</span>
-            <span class="md-icon logo">{% include ".icons/simple/python.svg" %}</span>
-            <span class="md-icon logo">{% include ".icons/simple/pandas.svg" %}</span>
-          </div>
-        </div>
-        <p>Predictive Modeling Kaggle notebook using RandomForest and XGBoost</p>
-      </div>
-    </a>
-
-    <a href="/projects/pmdb" class="project-link">
-      <div class="project">
-        <div class="project-header">
+    <a href="/projects/pmdb" class="card-link">
+      <div class="card">
+        <div class="card-media"><span class="md-icon card-icon">{% include ".icons/simple/streamlit.svg" %}</span></div>
+        <div class="card-body">
           <h2>IMDb & Letterboxd Film Rating Database </h2>
-          <div class="icons">
-            <span class="md-icon logo">{% include ".icons/simple/snowflake.svg" %}</span>
-            <span class="md-icon logo">{% include ".icons/simple/streamlit.svg" %}</span>
-            <span class="md-icon logo">{% include ".icons/simple/dbt.svg" %}</span>
-          </div>
+          <div class="card-meta">Snowflake · dbt · Streamlit</div>
+          <p>ETL Pipeline using Snowflake, 37,000+ films with interactive Streamlit web app</p>
         </div>
-        <p>ETL Pipeline using Snowflake, 37,000+ films with interactive Streamlit web app</p>
       </div>
     </a>
+
+    <a href="/projects/signcraft" class="card-link">
+      <div class="card">
+        <div class="card-media"><span class="md-icon card-icon">{% include ".icons/simple/phoenixframework.svg" %}</span></div>
+        <div class="card-body">
+          <h2>SignCraft Web-App</h2>
+          <div class="card-meta">Phoenix · PostgreSQL · Fly.io</div>
+          <p>Full-Stack Phoenix Web-App with Database for learning ASL</p>
+        </div>
+      </div>
+    </a>
+
+
+    <a href="/projects/cfp-predictor" class="card-link">
+      <div class="card">
+        <div class="card-media"><span class="md-icon card-icon">{% include ".icons/simple/scikitlearn.svg" %}</span></div>
+        <div class="card-body">
+          <h2>College Football Playoff Predictor</h2>
+          <div class="card-meta">Python · Scikit-learn · XGBoost</div>
+          <p>Predictive Modeling Kaggle notebook using RandomForest and XGBoost</p>
+        </div>
+      </div>
+    </a>
+
+
+
+  </div>
+
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/peyton-pope/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+      <span class="md-icon">{% include ".icons/fontawesome/brands/linkedin.svg" %}</span>
+    </a>
     
+    <a href="https://github.com/pdotpope" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener">
+      <span class="md-icon">{% include ".icons/fontawesome/brands/github.svg" %}</span>
+    </a>
+    
+    <a href="mailto:peytonpope24@gmail.com" class="social-icon" aria-label="Email">
+      <span class="md-icon">{% include ".icons/material/email.svg" %}</span>
+    </a>
   </div>
 </section>
 

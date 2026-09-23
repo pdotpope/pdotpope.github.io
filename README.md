@@ -1,5 +1,5 @@
 # Portfolio 
-> [peytonjpope.com](https://peytonjpope.com)
+> [pdot.dev](https://pdot.dev)
 
 ### v2.0
 - Transitioned from HTML/JS/CSS to documentation-style portfolio
