@@ -78,6 +78,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="321-Lab-7_files/libs/visNetwork-binding-2.1.4/visNetwork.js"></script>
 
 
+<style>
+  /* Portfolio view: show the narrative and rendered outputs (plots, interactive
+     widgets, tables) only. Raw R source and console logs are hidden; outputs
+     tagged .keep-output are results worth showing despite being console text. */
+  .cell-code,
+  .cell-output-stdout:not(.keep-output) { display: none; }
+</style>
 </head>
 
 <body class="quarto-light">
@@ -830,7 +837,7 @@ Creating S4 object  ... done [0.00s].</code></pre>
 <span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(comparison_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<div class="cell-output cell-output-stdout keep-output">
 <pre><code>                  Set Speed   Memory
 1      Apriori Artist 0.109  5.05584
 2       Apriori Track 0.340 15.01603

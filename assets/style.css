@@ -1,0 +1,62 @@
+/* Tag chip styling — applies both to the small tags shown at the top of
+   each project page and to the tag headings on the Skills index page. */
+.md-typeset .md-tag {
+  display: inline-flex;
+  align-items: center;
+  background: #58738320;
+  border: 1px solid #587383;
+  color: var(--md-default-fg-color);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: none;
+  transition: background 0.2s ease;
+}
+
+.md-typeset .md-tag:hover {
+  background: #58738345;
+}
+
+/* Skills index page — collapse Material's default "heading + bullet list
+   per tag" layout into compact rows: a tag pill followed by a wrapped row
+   of small linked chips for each project that uses it. */
+.skills-page h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: normal;
+  border: none;
+  padding: 0;
+}
+
+.skills-page ul {
+  margin: 0 0 0 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills-page li {
+  margin: 0;
+}
+
+.skills-page li a {
+  display: inline-block;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.7rem;
+  border: 1px solid #4d4d4d;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  color: var(--md-default-fg-color);
+  transition: all 0.2s ease;
+}
+
+.skills-page li a:hover {
+  border-color: #587383;
+  background: #58738312;
+}
