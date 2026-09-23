@@ -1,8 +1,8 @@
 # Portfolio 
-> [pdot.dev](https://pdot.dev)
+> 🌐 [pdot.dev](https://pdot.dev)
 
-### v2.0
-- Transitioned from HTML/JS/CSS to documentation-style portfolio
+### v2.1
+- About me combined with home page
 
 ### Tech Used
 - Markdown (documents)
