@@ -65,6 +65,7 @@ nav:
     - Spotify Pattern Mining: projects/spotify-ds.md
     # - Streamlit TenniSim: projects/tennis-sim.md
     - Churn Classifier: projects/churn-classifier.md
+    - JobSifter AI Agent: projects/jobsifter.md
     - Web Bracket Generator: projects/cfpbracket.md
     - Church Map Viz: projects/churchds.md
     - MyBlocker Extension: projects/myblocker.md
