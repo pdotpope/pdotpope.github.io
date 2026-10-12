@@ -612,585 +612,595 @@
               <article class="md-content__inner md-typeset">
                 
 <style>
-
-html {
-  scroll-behavior: smooth;
-}
-
-
-/* FORCE full screen hero - override ALL Material spacing */
-.md-main {
-  flex-grow: 0 !important;
-}
-
-.md-main__inner {
-  margin: 0 !important;
-  max-width: none !important;
-}
-
-.md-content {
-  padding: 0 !important;
-}
-
-.md-content__inner {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.md-container {
-  padding-top: 0 !important;
-  margin-top: 0 !important;  /* Ensure no top margin */
-}
-
-/* Full-screen hero that leaves space for footer */
-.hero-banner {
-  position: relative;
-  height: calc(100vh - var(--md-header-height, 2.8rem) - var(--md-footer-height, 2.9rem)) !important;  /* Full height minus header and footer */
-  width: 100vw !important;
-  margin: 0 !important;
-  margin-left: calc(-50vw + 50%) !important;
-  margin-top: -8px !important;  /* Remove any top margin that might cause gap */
-  background-image: url('../assets/hero.jpg');
-  background-size: cover;
-  background-position: left;
-  background-attachment: fixed;
-  display: flex;
-  align-items: flex-end;  /* Align to bottom for fixed bottom margin */
-  justify-content: flex-start;  /* Left align */
-  color: white;
-  overflow: hidden;
-}
-
-/* Dark overlay for better text contrast */
-.hero-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%);
-  z-index: 1;
-}
-
-/* Hero content with fixed bottom margin */
-.hero-content {
-  max-width: none;  /* Remove width constraint */
-  padding-bottom: 3rem;
-  margin-left: var(--md-nav-width, 12.1rem);  /* Use Material's nav width variable */
-  margin-right: 2rem;  /* Add right margin for text wrapping */
-  margin-bottom: 2rem;  /* Fixed small margin from bottom */
-  text-align: left;
-  z-index: 2;
-  position: relative;
-}
-
-/* Down arrow centered at bottom */
-.arrow {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  color: white;
-  opacity: 0.8;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.arrow:hover {
-  opacity: 1;
-}
-
-.arrow .md-icon {
-  font-size: 2rem;  
-}
-
-
-.logo {
-  transform: translateY(-5px); 
-}
-
-/* For when nav is expanded */
-@media screen and (min-width: 76.25em) {
-  .hero-content {
-    margin-left: var(--md-nav-width, 12.1rem);
+  html {
+    scroll-behavior: smooth;
   }
-}
 
-/* For when nav is collapsed */
-@media screen and (max-width: 76.1875em) {
-  .hero-content {
-    margin-left: 1.2rem;  /* Align with hamburger menu */
-    margin-right: 1.2rem;
+  /* FORCE full screen hero - override ALL Material spacing */
+  .md-main {
+    flex-grow: 0 !important;
   }
-}
 
-/* Large heading with full white opacity */
-.hero-banner h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin: 0 0 1.5rem 0;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  color: white;  /* Full white opacity */
-  opacity: 1;    /* Ensure full opacity */
-}
+  .md-main__inner {
+    margin: 0 !important;
+    max-width: none !important;
+  }
 
+  .md-content {
+    padding: 0 !important;
+  }
 
-/* Button styling exactly like Material docs */
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
+  .md-content__inner {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-.hero-buttons .md-button {
-  padding: 0.75rem 2rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  text-transform: none;
-  border-radius: 0.25rem;  /* Square corners like Material */
-  transition: all 0.2s ease;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  .md-container {
+    padding-top: 0 !important;
+    margin-top: 0 !important; /* Ensure no top margin */
+  }
 
-/* Primary button (red like "Get started") */
-.hero-buttons .md-button--primary {
-  background-color: #587383; 
-  color: white;
-  border: none;
-}
+  /* Full-screen hero that leaves space for footer */
+  .hero-banner {
+    position: relative;
+    height: calc(
+      100vh - var(--md-header-height, 2.8rem) - var(--md-footer-height, 2.9rem)
+    ) !important; /* Full height minus header and footer */
+    width: 100vw !important;
+    margin: 0 !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-top: -8px !important; /* Remove any top margin that might cause gap */
+    background-image: url("../assets/hero.jpg");
+    background-size: cover;
+    background-position: left;
+    background-attachment: fixed;
+    display: flex;
+    align-items: flex-end; /* Align to bottom for fixed bottom margin */
+    justify-content: flex-start; /* Left align */
+    color: white;
+    overflow: hidden;
+  }
 
-.hero-buttons .md-button--primary:hover {
-  background-color: #587383d8;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* Dark overlay for better text contrast */
+  .hero-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+    z-index: 1;
+  }
 
-}
+  /* Hero content with fixed bottom margin */
+  .hero-content {
+    max-width: none; /* Remove width constraint */
+    padding-bottom: 3rem;
+    margin-left: var(
+      --md-nav-width,
+      12.1rem
+    ); /* Use Material's nav width variable */
+    margin-right: 2rem; /* Add right margin for text wrapping */
+    margin-bottom: 2rem; /* Fixed small margin from bottom */
+    text-align: left;
+    z-index: 2;
+    position: relative;
+  }
 
-/* Secondary button (transparent like "Learn more") */
-.hero-buttons .md-button:not(.md-button--primary) {
-  background-color: transparent;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
+  /* Down arrow centered at bottom */
+  .arrow {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: white;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 
-.hero-buttons .md-button:not(.md-button--primary):hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-1px);
-}
+  .arrow:hover {
+    opacity: 1;
+  }
 
-/* Home projects section */
-.home-projects {
-  margin: 5rem auto;
-  max-width: 1200px;
-  padding: 0 2rem;
-  text-align: center;
-}
+  .arrow .md-icon {
+    font-size: 2rem;
+  }
 
-/* About/Background section - same card treatment as Featured Projects
+  .logo {
+    transform: translateY(-5px);
+  }
+
+  /* For when nav is expanded */
+  @media screen and (min-width: 76.25em) {
+    .hero-content {
+      margin-left: var(--md-nav-width, 12.1rem);
+    }
+  }
+
+  /* For when nav is collapsed */
+  @media screen and (max-width: 76.1875em) {
+    .hero-content {
+      margin-left: 1.2rem; /* Align with hamburger menu */
+      margin-right: 1.2rem;
+    }
+  }
+
+  /* Large heading with full white opacity */
+  .hero-banner h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    color: white; /* Full white opacity */
+    opacity: 1; /* Ensure full opacity */
+  }
+
+  /* Button styling exactly like Material docs */
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .hero-buttons .md-button {
+    padding: 0.75rem 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: none;
+    border-radius: 0.25rem; /* Square corners like Material */
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Primary button (red like "Get started") */
+  .hero-buttons .md-button--primary {
+    background-color: #587383;
+    color: white;
+    border: none;
+  }
+
+  .hero-buttons .md-button--primary:hover {
+    background-color: #587383d8;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Secondary button (transparent like "Learn more") */
+  .hero-buttons .md-button:not(.md-button--primary) {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .hero-buttons .md-button:not(.md-button--primary):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+  }
+
+  /* Home projects section */
+  .home-projects {
+    margin: 5rem auto;
+    max-width: 1200px;
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  /* About/Background section - same card treatment as Featured Projects
    below (title + one-line description) for a consistent feel */
-.home-about {
-  margin: 5rem auto;
-  max-width: 1200px;
-  padding: 0 2rem;
-  text-align: center;
-}
+  .home-about {
+    margin: 5rem auto;
+    max-width: 1200px;
+    padding: 0 2rem;
+    text-align: center;
+  }
 
-/* Single knob for overall card size across every section and breakpoint -
+  /* Single knob for overall card size across every section and breakpoint -
    padding, gaps, media tiles, fonts, and the desktop column width all
    multiply against it, so resizing the cards is a one-number change. */
-:root {
-  --card-scale: 0.85;
-}
+  :root {
+    --card-scale: 0.85;
+  }
 
-/* Shared card template used by both the About (Education/Experience) and
+  /* Shared card template used by both the About (Education/Experience) and
    Featured Projects sections - a media tile on the left, vertically
    centered against the whole card, with title/meta/description beside it */
-.card {
-  background-color: #f5f5f500;
-  border: 1px solid #4d4d4d;
-  border-radius: .4rem;
-  padding: calc(0.75rem * var(--card-scale)) calc(0.9rem * var(--card-scale));
-  text-align: left;
-  transition: all 0.3s ease;
-  /* width:100% of the grid column (not min/max-width) so every card in
+  .card {
+    background-color: #f5f5f500;
+    border: 1px solid #4d4d4d;
+    border-radius: 0.4rem;
+    padding: calc(0.75rem * var(--card-scale)) calc(0.9rem * var(--card-scale));
+    text-align: left;
+    transition: all 0.3s ease;
+    /* width:100% of the grid column (not min/max-width) so every card in
      every section is pinned to the same, single, unambiguous width */
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: calc(0.85rem * var(--card-scale));
-}
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: calc(0.85rem * var(--card-scale));
+  }
 
-/* Media tile - fixed footprint so photo logos and tech-stack icons line
+  /* Media tile - fixed footprint so photo logos and tech-stack icons line
    up identically regardless of card type */
-.card-media {
-  width: calc(70px * var(--card-scale));
-  height: calc(70px * var(--card-scale));
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .card-media {
+    width: calc(70px * var(--card-scale));
+    height: calc(70px * var(--card-scale));
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-/* About cards: framed photo logo */
-.card-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0.5rem;
-  border: 2px solid #4d4d4d;
-}
+  /* About cards: framed photo logo */
+  .card-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 2px solid #4d4d4d;
+  }
 
-/* Project cards: single tech-stack icon, no frame - just the accent color
+  /* Project cards: single tech-stack icon, no frame - just the accent color
    via currentColor (the Simple Icons SVGs ship with no hardcoded fill).
    Material hardcodes .md-icon svg to a fixed 1.2rem width/height, so
    font-size on this span does nothing - the svg itself has to be resized. */
-.card-icon {
-  color: #587383;
-}
+  .card-icon {
+    color: #587383;
+  }
 
-.card-icon svg {
-  width: calc(3.5rem * var(--card-scale));
-  height: calc(3.5rem * var(--card-scale));
-}
+  .card-icon svg {
+    width: calc(3.5rem * var(--card-scale));
+    height: calc(3.5rem * var(--card-scale));
+  }
 
-.card-body {
-  flex: 1;
-  min-width: 0;
-}
+  .card-body {
+    flex: 1;
+    min-width: 0;
+  }
 
-/* Section headings - tight, consistent top/bottom rhythm instead of the
+  /* Section headings - tight, consistent top/bottom rhythm instead of the
    browser's default heading margins */
-.home-about h1,
-.home-projects h1 {
-  margin: 0 0 1rem 0;
-  color: white;
-}
+  .home-about h1,
+  .home-projects h1 {
+    margin: 0 0 1rem 0;
+    color: white;
+  }
 
-.home-about h1:not(:first-child) {
-  margin-top: 2.5rem;
-}
+  .home-about h1:not(:first-child) {
+    margin-top: 2.5rem;
+  }
 
-/* Project grid layout - single column, full track width so every card in
+  /* Project grid layout - single column, full track width so every card in
    every section resolves to the same width instead of shrinking to fit
    its own content (grid-template-columns: 1 is an invalid value and gets
    dropped, which is what caused that per-section width drift) */
-.project-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.65rem;
-  margin: 0.5rem auto 3rem auto;
-  max-width: calc(700px * var(--card-scale));
-}
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    margin: 0.5rem auto 3rem auto;
+    max-width: calc(700px * var(--card-scale));
+  }
 
-/* Hover feedback only applies to cards that are actually links */
-.card-link .card {
-  cursor: pointer;
-}
+  /* Hover feedback only applies to cards that are actually links */
+  .card-link .card {
+    cursor: pointer;
+  }
 
-.card-link:hover .card {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  background-color: #58738307;
-  border: 1px solid #587383;
-}
+  .card-link:hover .card {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    background-color: #58738307;
+    border: 1px solid #587383;
+  }
 
-/* Card titles - bold and prominent, tight against the meta line below */
-.card h2 {
-  margin: 0 0 0.15rem 0;
-  font-size: calc(1.1rem * var(--card-scale));
-  color: var(--md-default-fg-color) !important;
-}
+  /* Card titles - bold and prominent, tight against the meta line below */
+  .card h2 {
+    margin: 0 0 0.15rem 0;
+    font-size: calc(1.1rem * var(--card-scale));
+    color: var(--md-default-fg-color) !important;
+  }
 
-/* Meta line - org/dates on About cards, tools-used text on Project cards.
+  /* Meta line - org/dates on About cards, tools-used text on Project cards.
    Needs the same forced color as the title/description: it sits inside the
    card-link anchor and would otherwise inherit Material's default link blue */
-.card-meta {
-  font-size: calc(0.75rem * var(--card-scale));
-  opacity: 0.8;
-  margin: 0 0 0.3rem 0;
-  color: var(--md-default-fg-color) !important;
-}
+  .card-meta {
+    font-size: calc(0.75rem * var(--card-scale));
+    opacity: 0.8;
+    margin: 0 0 0.3rem 0;
+    color: var(--md-default-fg-color) !important;
+  }
 
-/* Card descriptions - locked color so it never follows link visited/hover
+  /* Card descriptions - locked color so it never follows link visited/hover
    state, and never inherits list/description default margins */
-.card p {
-  color: var(--md-default-fg-color) !important;
-  font-style: italic;
-  margin: 0;
-  font-size: calc(0.75rem * var(--card-scale));
-}
+  .card p {
+    color: var(--md-default-fg-color) !important;
+    font-style: italic;
+    margin: 0;
+    font-size: calc(0.75rem * var(--card-scale));
+  }
 
-/* Remove link styling - no colors, no underlines */
-.card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
+  /* Remove link styling - no colors, no underlines */
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
 
-.card-link:hover:visited {
-  color: inherit;
-  text-decoration: none;
-}
+  .card-link:hover:visited {
+    color: inherit;
+    text-decoration: none;
+  }
 
-.card-link:visited {
-  text-decoration: none;
-  color: inherit;
-}
+  .card-link:visited {
+    text-decoration: none;
+    color: inherit;
+  }
 
-/* Footer social links - minimal, just the icon, no button chrome */
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
-  margin: 1rem auto 4rem auto;
-}
+  /* Footer social links - minimal, just the icon, no button chrome */
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    margin: 1rem auto 4rem auto;
+  }
 
-/* !important needed here for the same reason as .card-meta above: Material's
+  /* !important needed here for the same reason as .card-meta above: Material's
    own .md-typeset a link-color rule otherwise wins over a plain class and
    the icons render in the theme's link blue instead of a plain grey */
-.social-icon,
-.social-icon:visited {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffffb3 !important;
-  font-size: 1.5rem;
-  transition: color 0.2s ease;
-  text-decoration: none;
-}
+  .social-icon,
+  .social-icon:visited {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffffb3 !important;
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
+    text-decoration: none;
+  }
 
-.social-icon:hover,
-.social-icon:visited:hover {
-  color: #ffffff !important;
-}
+  .social-icon:hover,
+  .social-icon:visited:hover {
+    color: #ffffff !important;
+  }
 
-/* Thin centered rule marking the break between the About and Projects
+  /* Thin centered rule marking the break between the About and Projects
    sections - narrower than the content column so it reads as a subtle
    divider rather than a full-width rule. !important throughout for the
    same reason as the other overrides above: Material's .md-typeset hr
    rule outranks a plain class and otherwise wins on margin/border. */
-.section-divider {
-  width: 90% !important;
-  height: 1px !important;
-  margin: 0 auto !important;
-  border: none !important;
-  background-color: #4d4d4d !important;
-}
+  .section-divider {
+    width: 90% !important;
+    height: 1px !important;
+    margin: 0 auto !important;
+    border: none !important;
+    background-color: #4d4d4d !important;
+  }
 
-/* Liberty University group - the degree card followed by role subcards
+  /* Liberty University group - the degree card followed by role subcards
    (Genworth, SAM Fund, Tutor, Shepherd), all flush-left and the same
    width/style as any other card, just spaced apart instead of stacked. */
-.edu-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
+  .edu-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
 
-/* Role subcards (Genworth, SAM Fund, Tutor, Shepherd) read as subordinate
+  /* Role subcards (Genworth, SAM Fund, Tutor, Shepherd) read as subordinate
    to the degree card above them - indented in from the left with the
    right edge still flush, and slightly smaller media/text throughout.
    width:auto (overriding .card's width:100%) lets the block fill whatever
    the left margin leaves, so the right edge stays aligned with the degree
    card no matter how the indent is tuned - a calc() width has to be kept
    in sync with the margin by hand and drifts when they disagree. */
-.edu-stack .subcard {
-  margin-left: 1rem;
-  margin-right: 1rem;
-
-  width: auto;
-}
-
-.edu-stack .subcard .card-media {
-  width: calc(56px * var(--card-scale));
-  height: calc(56px * var(--card-scale));
-}
-
-.edu-stack .subcard h2 {
-  font-size: calc(1rem * var(--card-scale));
-}
-
-.edu-stack .subcard .card-meta {
-  font-size: calc(0.7rem * var(--card-scale));
-}
-
-/* Mobile responsive adjustments */
-@media screen and (max-width: 59.9375em) {
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: none;
-  }
-  
-  .home-projects {
-    margin: 3rem auto;
-    padding: 0 1rem;
-  }
-
-  /* Match the Projects section's mobile gutter - the desktop 2rem padding
-     otherwise makes every About card noticeably narrower than the project
-     cards below it on phones */
-  .home-about {
-    padding: 0 1rem;
-  }
-
-  .home-about h1:not(:first-child) {
-    margin-top: 2rem;
-  }
-
-  /* Shrink every card (Education, Experience, Projects) on phones/tablets -
-     full desktop scale leaves too little room for the title/meta text */
-  .card {
-    padding: calc(0.6rem * var(--card-scale)) calc(0.75rem * var(--card-scale));
-    gap: calc(0.65rem * var(--card-scale));
-  }
-
-  .card-media {
-    width: calc(50px * var(--card-scale));
-    height: calc(50px * var(--card-scale));
-  }
-
-  .card-icon svg {
-    width: calc(2.5rem * var(--card-scale));
-    height: calc(2.5rem * var(--card-scale));
-  }
-
-  .card h2 {
-    font-size: calc(0.95rem * var(--card-scale));
-  }
-
-  .card-meta {
-    font-size: calc(0.68rem * var(--card-scale));
-  }
-
-  .card p {
-    font-size: calc(0.68rem * var(--card-scale));
-  }
-
-  /* Shrink the role subcards further on phones/tablets - at full card
-     scale they crowd out the indent and dominate the degree card above them */
   .edu-stack .subcard {
-    margin-left: 0.85rem;
-    padding: calc(0.5rem * var(--card-scale)) calc(0.6rem * var(--card-scale));
-    gap: calc(0.6rem * var(--card-scale));
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    width: auto;
   }
 
   .edu-stack .subcard .card-media {
-    width: calc(38px * var(--card-scale));
-    height: calc(38px * var(--card-scale));
+    width: calc(56px * var(--card-scale));
+    height: calc(56px * var(--card-scale));
   }
 
   .edu-stack .subcard h2 {
-    font-size: calc(0.8rem * var(--card-scale));
+    font-size: calc(1rem * var(--card-scale));
   }
 
   .edu-stack .subcard .card-meta {
-    font-size: calc(0.62rem * var(--card-scale));
+    font-size: calc(0.7rem * var(--card-scale));
   }
-}
 
-/* Medium screens - still 2 columns but smaller */
-@media screen and (max-width: 76.25em) and (min-width: 60em) {
-  .project-grid {
-    max-width: calc(700px * var(--card-scale));
-    gap: 1rem;
-  }
-}
+  /* Mobile responsive adjustments */
+  @media screen and (max-width: 59.9375em) {
+    .project-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: none;
+    }
 
-/* Responsive design with proper alignment */
-@media screen and (max-width: 59.9375em) {
-  .hero-banner {
-    background-attachment: scroll;
+    .home-projects {
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Match the Projects section's mobile gutter - the desktop 2rem padding
+     otherwise makes every About card noticeably narrower than the project
+     cards below it on phones */
+    .home-about {
+      padding: 0 1rem;
+    }
+
+    .home-about h1:not(:first-child) {
+      margin-top: 2rem;
+    }
+
+    /* Shrink every card (Education, Experience, Projects) on phones/tablets -
+     full desktop scale leaves too little room for the title/meta text */
+    .card {
+      padding: calc(0.6rem * var(--card-scale))
+        calc(0.75rem * var(--card-scale));
+      gap: calc(0.65rem * var(--card-scale));
+    }
+
+    .card-media {
+      width: calc(50px * var(--card-scale));
+      height: calc(50px * var(--card-scale));
+    }
+
+    .card-icon svg {
+      width: calc(2.5rem * var(--card-scale));
+      height: calc(2.5rem * var(--card-scale));
+    }
+
+    .card h2 {
+      font-size: calc(0.95rem * var(--card-scale));
+    }
+
+    .card-meta {
+      font-size: calc(0.68rem * var(--card-scale));
+    }
+
+    .card p {
+      font-size: calc(0.68rem * var(--card-scale));
+    }
+
+    /* Shrink the role subcards further on phones/tablets - at full card
+     scale they crowd out the indent and dominate the degree card above them */
+    .edu-stack .subcard {
+      margin-left: 0.85rem;
+      padding: calc(0.5rem * var(--card-scale)) calc(0.6rem * var(--card-scale));
+      gap: calc(0.6rem * var(--card-scale));
+    }
+
+    .edu-stack .subcard .card-media {
+      width: calc(38px * var(--card-scale));
+      height: calc(38px * var(--card-scale));
+    }
+
+    .edu-stack .subcard h2 {
+      font-size: calc(0.8rem * var(--card-scale));
+    }
+
+    .edu-stack .subcard .card-meta {
+      font-size: calc(0.62rem * var(--card-scale));
+    }
   }
-  
-  .hero-content {
-    margin-left: 1.2rem;  /* Align with mobile nav */
-    margin-right: 1.2rem;
-    margin-bottom: 1.5rem;  /* Fixed small margin from bottom on mobile */
+
+  /* Medium screens - still 2 columns but smaller */
+  @media screen and (max-width: 76.25em) and (min-width: 60em) {
+    .project-grid {
+      max-width: calc(700px * var(--card-scale));
+      gap: 1rem;
+    }
   }
-  
+
+  /* Responsive design with proper alignment */
+  @media screen and (max-width: 59.9375em) {
+    .hero-banner {
+      background-attachment: scroll;
+    }
+
+    .hero-content {
+      margin-left: 1.2rem; /* Align with mobile nav */
+      margin-right: 1.2rem;
+      margin-bottom: 1.5rem; /* Fixed small margin from bottom on mobile */
+    }
+
+    .hero-banner h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-buttons {
+      flex-direction: row; /* Keep buttons horizontal on mobile */
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap; /* Allow wrapping if needed */
+    }
+
+    .hero-buttons .md-button {
+      width: auto;
+      min-width: 120px; /* Smaller min-width for mobile */
+      flex-shrink: 0; /* Prevent buttons from shrinking */
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .home-projects {
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .home-projects h1 {
+      font-size: 1.5rem;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .project-grid {
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+    }
+  }
+
+  /* Animation on load */
+  @keyframes heroSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes arrowSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-content > * {
+    animation: heroSlideIn 0.8s ease-out forwards;
+  }
+
+  .arrow > * {
+    animation: arrowSlideIn 0.8s ease-out forwards;
+  }
+
   .hero-banner h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    animation-delay: 0.1s;
   }
-  
-  
   .hero-buttons {
-    flex-direction: row;  /* Keep buttons horizontal on mobile */
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;  /* Allow wrapping if needed */
+    animation-delay: 0.2s;
   }
-  
-  .hero-buttons .md-button {
-    width: auto;
-    min-width: 120px;  /* Smaller min-width for mobile */
-    flex-shrink: 0;    /* Prevent buttons from shrinking */
-    padding-left: 1rem;
-    padding-right: 1rem;
-
+  .arrow {
+    animation-delay: 0.5s;
   }
-
-  .home-projects {
-    margin: 3rem auto;
-    padding: 0 1rem;
-  }
-  
-  .home-projects h1 {
-    font-size: 1.5rem;
-    margin: 0 0 0.75rem 0;
-  }
-
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: 0.65rem;
-  }
-}
-
-/* Animation on load */
-@keyframes heroSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes arrowSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-content > * {
-  animation: heroSlideIn 0.8s ease-out forwards;
-}
-
-.arrow > * {
-  animation: arrowSlideIn 0.8s ease-out forwards;
-}
-
-.hero-banner h1 { animation-delay: 0.1s; }
-.hero-buttons { animation-delay: 0.2s; }
-.arrow { animation-delay: 0.5s; }
 </style>
 
 <section class="hero-banner">
@@ -1203,59 +1213,97 @@ html {
   </div>
   <a href="#about">
     <div class="arrow">
-      <span class="md-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16z"/></svg></span>
+      <span class="md-icon"
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16z"/></svg></span
+      >
     </div>
   </a>
 </section>
 
 <section class="home-about" id="about">
-
   <h1>My Background</h1>
 
   <div class="project-grid">
-
-    <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+    <a
+      href="../assets/pope-resume.pdf"
+      class="card-link"
+      target="_blank"
+      rel="noopener"
+    >
       <div class="card">
-        <div class="card-media"><img src="../assets/logos/tmeic-logo.png" class="card-photo" alt="TMEIC"></div>
+        <div class="card-media">
+          <img
+            src="../assets/logos/tmeic-logo.png"
+            class="card-photo"
+            alt="TMEIC"
+          />
+        </div>
         <div class="card-body">
           <h2>Applications, AI &amp; ML Intern</h2>
           <div class="card-meta">TMEIC · Summer 2026</div>
-
         </div>
       </div>
     </a>
 
-    <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+    <a
+      href="../assets/pope-resume.pdf"
+      class="card-link"
+      target="_blank"
+      rel="noopener"
+    >
       <div class="card">
-        <div class="card-media"><img src="../assets/logos/pbt-logo.png" class="card-photo" alt="Pioneer Bible Translators"></div>
+        <div class="card-media">
+          <img
+            src="../assets/logos/pbt-logo.png"
+            class="card-photo"
+            alt="Pioneer Bible Translators"
+          />
+        </div>
         <div class="card-body">
           <h2>Software Development Intern</h2>
           <div class="card-meta">Pioneer Bible Translators · Summer 2025</div>
-
         </div>
       </div>
     </a>
-
   </div>
 
-
   <div class="project-grid">
-
     <div class="edu-stack">
-      <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+      <a
+        href="../assets/pope-resume.pdf"
+        class="card-link"
+        target="_blank"
+        rel="noopener"
+      >
         <div class="card">
-          <div class="card-media"><img src="../assets/logos/lu-logo.jpg" class="card-photo" alt="Liberty University"></div>
+          <div class="card-media">
+            <img
+              src="../assets/logos/lu-logo.jpg"
+              class="card-photo"
+              alt="Liberty University"
+            />
+          </div>
           <div class="card-body">
             <h2>B.S. Computer Science: Data Science</h2>
             <div class="card-meta">Liberty University · 2027 (expected)</div>
-
           </div>
         </div>
       </a>
 
-      <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+      <a
+        href="../assets/pope-resume.pdf"
+        class="card-link"
+        target="_blank"
+        rel="noopener"
+      >
         <div class="card subcard">
-          <div class="card-media"><img src="../assets/logos/genworth-logo.png" class="card-photo" alt="Genworth"></div>
+          <div class="card-media">
+            <img
+              src="../assets/logos/genworth-logo.png"
+              class="card-photo"
+              alt="Genworth"
+            />
+          </div>
           <div class="card-body">
             <h2>Capstone Team Member</h2>
             <div class="card-meta">Genworth · Aug 2026 - Present</div>
@@ -1263,64 +1311,108 @@ html {
         </div>
       </a>
 
-      <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+      <a
+        href="../assets/pope-resume.pdf"
+        class="card-link"
+        target="_blank"
+        rel="noopener"
+      >
         <div class="card subcard">
-          <div class="card-media"><img src="../assets/logos/samfund-logo.jpg" class="card-photo" alt="Student Asset Management Fund"></div>
+          <div class="card-media">
+            <img
+              src="../assets/logos/samfund-logo.jpg"
+              class="card-photo"
+              alt="Student Asset Management Fund"
+            />
+          </div>
           <div class="card-body">
             <h2>Junior Analyst, Quantitative Research Group</h2>
-            <div class="card-meta">Student Asset Management Fund · Aug 2026 - Present</div>
+            <div class="card-meta">
+              Student Asset Management Fund · Aug 2026 - Present
+            </div>
           </div>
         </div>
       </a>
 
-      <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+      <a
+        href="../assets/pope-resume.pdf"
+        class="card-link"
+        target="_blank"
+        rel="noopener"
+      >
         <div class="card subcard">
-          <div class="card-media"><img src="../assets/logos/casas-logo.jpeg" class="card-photo" alt="Liberty University"></div>
+          <div class="card-media">
+            <img
+              src="../assets/logos/casas-logo.jpeg"
+              class="card-photo"
+              alt="Liberty University"
+            />
+          </div>
           <div class="card-body">
             <h2>Computer Science Tutor</h2>
-            <div class="card-meta">Liberty University · Dec 2024 - May 2026</div>
+            <div class="card-meta">
+              Liberty University · Dec 2024 - May 2026
+            </div>
           </div>
         </div>
       </a>
 
-      <a href="../assets/resume.pdf" class="card-link" target="_blank" rel="noopener">
+      <a
+        href="../assets/pope-resume.pdf"
+        class="card-link"
+        target="_blank"
+        rel="noopener"
+      >
         <div class="card subcard">
-          <div class="card-media"><img src="../assets/logos/osd-logo.jpeg" class="card-photo" alt="Liberty University"></div>
+          <div class="card-media">
+            <img
+              src="../assets/logos/osd-logo.jpeg"
+              class="card-photo"
+              alt="Liberty University"
+            />
+          </div>
           <div class="card-body">
             <h2>Resident Shepherd</h2>
-            <div class="card-meta">Liberty University · Feb 2024 - May 2026</div>
+            <div class="card-meta">
+              Liberty University · Feb 2024 - May 2026
+            </div>
           </div>
         </div>
       </a>
     </div>
-
   </div>
-
-
-
-
 </section>
 
-<hr class="section-divider">
+<hr class="section-divider" />
 
 <section class="home-projects" id="projects">
   <h1>Featured Projects</h1>
   <div class="project-grid">
-
     <a href="/projects/pmdb" class="card-link">
       <div class="card">
-        <div class="card-media"><span class="md-icon card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16.673 11.32 6.862-3.618c.233-.136.554.12.442.387L20.463 17.1zm-8.556-.229 3.473-5.187c.203-.328.578-.316.793-.028l7.886 11.75zm-3.375 7.25c-.28 0-.835-.284-.993-.716l-3.72-9.46c-.118-.331.139-.614.48-.464l19.474 10.306c-.149.147-.453.337-.72.334z"/></svg></span></div>
+        <div class="card-media">
+          <span class="md-icon card-icon"
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16.673 11.32 6.862-3.618c.233-.136.554.12.442.387L20.463 17.1zm-8.556-.229 3.473-5.187c.203-.328.578-.316.793-.028l7.886 11.75zm-3.375 7.25c-.28 0-.835-.284-.993-.716l-3.72-9.46c-.118-.331.139-.614.48-.464l19.474 10.306c-.149.147-.453.337-.72.334z"/></svg></span
+          >
+        </div>
         <div class="card-body">
-          <h2>IMDb & Letterboxd Film Rating Database </h2>
+          <h2>IMDb & Letterboxd Film Rating Database</h2>
           <div class="card-meta">Snowflake · dbt · Streamlit</div>
-          <p>ETL Pipeline using Snowflake, 37,000+ films with interactive Streamlit web app</p>
+          <p>
+            ETL Pipeline using Snowflake, 37,000+ films with interactive
+            Streamlit web app
+          </p>
         </div>
       </div>
     </a>
 
     <a href="/projects/signcraft" class="card-link">
       <div class="card">
-        <div class="card-media"><span class="md-icon card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9.012 15.241-.188-.036c-1.34-.248-2.186-1.06-2.588-2.334-.25-.794.204-1.38 1.038-1.416.682-.032 1.15.36 1.562.816.532.588 1.02 1.216 1.542 1.814.754.86 1.64 1.412 2.854 1.24a5.4 5.4 0 0 0 2.86-1.308c.124-.108.26-.2.392-.302l-.084-.098a6 6 0 0 1-2.12.252c-1.092-.054-2.132-.282-3.064-.882-.848-.548-1.476-1.28-1.774-2.26-.24-.79.252-1.344 1.072-1.23.313.049.606.187.842.398.2.168.39.346.594.51.958.77 2.294.812 3.508-.022-1.996-.01-3.354-1.108-4.548-2.5-.466-.544-.922-1.1-1.4-1.636-.92-1.038-1.944-1.952-3.346-2.264-1.79-.398-3.518-.136-5.176.622A4.2 4.2 0 0 0 0 5.217h.352c.836-.022 1.464.35 1.916 1.034.328.498.482 1.06.6 1.64.176.86.086 1.734.188 2.598.26 2.22 1.394 3.768 3.506 4.56.774.292 1.568.39 2.45.19zM3.674 5.113c-.334.084-.6-.05-.874-.328.47-.118.886-.164 1.332-.18a.56.56 0 0 1-.458.508m10.938 12.96c-.03-.212-.212-.306-.356-.42-.634-.492-1.378-.668-2.164-.682a4.1 4.1 0 0 1-1.378-.208c-.204-.076-.43-.174-.426-.436.006-.266.238-.34.448-.404.174-.052.352-.084.548-.13-.5-.32-.988-.364-1.636-.102-1.024.41-2.032.36-3.052-.006-.574-.208-1.086-.534-1.618-.824l-.026.02c.44.722 1.038 1.304 1.71 1.8 1.296.96 2.712 1.53 4.37 1.276a23 23 0 0 1 1.614-.19c.676-.054 1.32.136 1.966.308zm-3.124-10.37c-.036-.026-.07-.09-.144-.024a5.26 5.26 0 0 0 2.284 1.776c1.488.604 3 .708 4.544.174 1.2-.414 2.06-.01 2.508 1.156.066-1.352-.73-2.338-1.996-2.53-.712-.11-1.37.128-2.038.32-1.856.54-3.584.274-5.16-.872zm9.256 5.272.726.064c-.546-.48-1.212-.52-1.888-.48-1.026.058-1.766.65-2.44 1.356-.594.624-1.13 1.324-2.016 1.574l.02.04c.12.002.24.008.36.002 1.288-.058 2.5-.33 3.464-1.264.306-.294.576-.62.87-.926.226-.258.562-.394.904-.366m-2.992-1.596c-.96.084-1.794.48-2.58 1.006-.602.404-1.248.594-1.972.468q-.194-.032-.384-.058l-.006.054c.046.024.092.05.14.07.12.048.24.106.364.136 1.396.33 2.732.16 3.936-.618.76-.49 1.546-.582 2.398-.456q.129.022.258.036c.08.008.164.088.272 0a3.45 3.45 0 0 0-2.426-.638m-3.434-3.26a2.7 2.7 0 0 0 1.534-.364c-.154.014-.22.014-.282.026a2.3 2.3 0 0 1-1.96-.472l-.646-.5c-.856-.652-1.836-.872-2.91-.852.018.052.02.088.038.106 1.168 1.18 2.52 1.996 4.226 2.054zm8.452 6.06c-.724-.72-1.694-.81-2.59-.186.594.028 1.04.216 1.4.592q.191.201.404.378c.548.44 1.474.46 2.016.052-.636-.248-.636-.248-1.23-.838zm-7.198 5.486c-.634-1.18-1.7-1.448-2.936-1.368.364.1.708.26 1.02.474.286.2.526.448.764.702.472.504 1.208.812 1.696.708-.224-.14-.546-.514-.546-.514h-.012l.008.006.004.018c.004-.02.006-.016.008-.01h.02l-.028-.012v.01l.01.004s.114.208-.008-.018"/></svg></span></div>
+        <div class="card-media">
+          <span class="md-icon card-icon"
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9.012 15.241-.188-.036c-1.34-.248-2.186-1.06-2.588-2.334-.25-.794.204-1.38 1.038-1.416.682-.032 1.15.36 1.562.816.532.588 1.02 1.216 1.542 1.814.754.86 1.64 1.412 2.854 1.24a5.4 5.4 0 0 0 2.86-1.308c.124-.108.26-.2.392-.302l-.084-.098a6 6 0 0 1-2.12.252c-1.092-.054-2.132-.282-3.064-.882-.848-.548-1.476-1.28-1.774-2.26-.24-.79.252-1.344 1.072-1.23.313.049.606.187.842.398.2.168.39.346.594.51.958.77 2.294.812 3.508-.022-1.996-.01-3.354-1.108-4.548-2.5-.466-.544-.922-1.1-1.4-1.636-.92-1.038-1.944-1.952-3.346-2.264-1.79-.398-3.518-.136-5.176.622A4.2 4.2 0 0 0 0 5.217h.352c.836-.022 1.464.35 1.916 1.034.328.498.482 1.06.6 1.64.176.86.086 1.734.188 2.598.26 2.22 1.394 3.768 3.506 4.56.774.292 1.568.39 2.45.19zM3.674 5.113c-.334.084-.6-.05-.874-.328.47-.118.886-.164 1.332-.18a.56.56 0 0 1-.458.508m10.938 12.96c-.03-.212-.212-.306-.356-.42-.634-.492-1.378-.668-2.164-.682a4.1 4.1 0 0 1-1.378-.208c-.204-.076-.43-.174-.426-.436.006-.266.238-.34.448-.404.174-.052.352-.084.548-.13-.5-.32-.988-.364-1.636-.102-1.024.41-2.032.36-3.052-.006-.574-.208-1.086-.534-1.618-.824l-.026.02c.44.722 1.038 1.304 1.71 1.8 1.296.96 2.712 1.53 4.37 1.276a23 23 0 0 1 1.614-.19c.676-.054 1.32.136 1.966.308zm-3.124-10.37c-.036-.026-.07-.09-.144-.024a5.26 5.26 0 0 0 2.284 1.776c1.488.604 3 .708 4.544.174 1.2-.414 2.06-.01 2.508 1.156.066-1.352-.73-2.338-1.996-2.53-.712-.11-1.37.128-2.038.32-1.856.54-3.584.274-5.16-.872zm9.256 5.272.726.064c-.546-.48-1.212-.52-1.888-.48-1.026.058-1.766.65-2.44 1.356-.594.624-1.13 1.324-2.016 1.574l.02.04c.12.002.24.008.36.002 1.288-.058 2.5-.33 3.464-1.264.306-.294.576-.62.87-.926.226-.258.562-.394.904-.366m-2.992-1.596c-.96.084-1.794.48-2.58 1.006-.602.404-1.248.594-1.972.468q-.194-.032-.384-.058l-.006.054c.046.024.092.05.14.07.12.048.24.106.364.136 1.396.33 2.732.16 3.936-.618.76-.49 1.546-.582 2.398-.456q.129.022.258.036c.08.008.164.088.272 0a3.45 3.45 0 0 0-2.426-.638m-3.434-3.26a2.7 2.7 0 0 0 1.534-.364c-.154.014-.22.014-.282.026a2.3 2.3 0 0 1-1.96-.472l-.646-.5c-.856-.652-1.836-.872-2.91-.852.018.052.02.088.038.106 1.168 1.18 2.52 1.996 4.226 2.054zm8.452 6.06c-.724-.72-1.694-.81-2.59-.186.594.028 1.04.216 1.4.592q.191.201.404.378c.548.44 1.474.46 2.016.052-.636-.248-.636-.248-1.23-.838zm-7.198 5.486c-.634-1.18-1.7-1.448-2.936-1.368.364.1.708.26 1.02.474.286.2.526.448.764.702.472.504 1.208.812 1.696.708-.224-.14-.546-.514-.546-.514h-.012l.008.006.004.018c.004-.02.006-.016.008-.01h.02l-.028-.012v.01l.01.004s.114.208-.008-.018"/></svg></span
+          >
+        </div>
         <div class="card-body">
           <h2>SignCraft Web-App</h2>
           <div class="card-meta">Phoenix · PostgreSQL · Fly.io</div>
@@ -1329,37 +1421,58 @@ html {
       </div>
     </a>
 
-
     <a href="/projects/cfp-predictor" class="card-link">
       <div class="card">
-        <div class="card-media"><span class="md-icon card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.601 5.53c-1.91.035-3.981.91-5.63 2.56-2.93 2.93-2.083 8.53-1.088 9.525.805.804 6.595 1.843 9.526-1.088a10 10 0 0 0 .584-.643q.064-.437.489-1.106a1.9 1.9 0 0 1-.537.176q-.217.398-.676.855-.53.503-.76.656a.8.8 0 0 1-.437.152q-.524 0-.494-.924-.33.474-.612.7a.9.9 0 0 1-.578.224q-.292 0-.496-.273a1.03 1.03 0 0 1-.193-.507 4 4 0 0 1-.726.583q-.335.197-.74.197-.45 0-.727-.288a.98.98 0 0 1-.257-.524v.004q-.45.414-.79.611a1.3 1.3 0 0 1-.649.197.7.7 0 0 1-.571-.275q-.218-.275-.218-.739 0-.695.302-1.67.301-.976.733-1.797l.842-.312a.2.2 0 0 1 .06-.013q.095 0 .157.14.06.142.061.38 0 .677-.312 1.31-.31.633-.974 1.352-.027.345-.027.474 0 .289.106.458.107.17.282.169a.7.7 0 0 0 .382-.13q.198-.127.602-.523.04-.626.482-1.142.487-.57 1.08-.569.308 0 .494.16a.52.52 0 0 1 .186.417q0 .687-1.459 1.114.133.646.693.646a.8.8 0 0 0 .417-.117q.194-.115.575-.497.048-.378.259-.728.273-.45.701-.73.427-.278.756-.278.415 0 .58.381l.677-.374h.186l-.292.971q-.225.732-.226 1.004 0 .285.202.285.129 0 .285-.137.156-.138.437-.42v.001q.215-.233.392-.494-.285-.127-.285-.375 0-.255.174-.545.173-.29.479-.29.258 0 .258.265 0 .209-.149.596.55-.06.961-.842l.228-.01c1.059-2.438.828-5.075-.83-6.732-1.019-1.02-2.408-1.5-3.895-1.471m4.725 8.203a9 9 0 0 1-1.333 2.151 1 1 0 0 0-.012.147q0 .252.14.423.139.17.34.17.444-.001 1.254-.787-.002.06-.003.121 0 .219.036.666l.733-.172q0-.3.01-.474.016-.236.066-.517.03-.166.152-.315l.186-.216a5 5 0 0 1 .378-.397q.093-.083.162-.13a.26.26 0 0 1 .123-.046q.083 0 .083.106 0 .105-.156.497-.292.73-.292 1.084 0 .262.136.418a.45.45 0 0 0 .358.155q.548 0 1.313-.808v-.381q-.542.64-.784.64-.163 0-.163-.2 0-.15.195-.65.285-.73.285-1.048a.46.46 0 0 0-.112-.319.36.36 0 0 0-.282-.127q-.247 0-.567.233-.319.234-.863.84.08-.393.335-1.08l-.809.156a6.5 6.5 0 0 0-.399 1.074q-.06.234-.092.48a8 8 0 0 1-.49.45.38.38 0 0 1-.229.08.21.21 0 0 1-.174-.082.35.35 0 0 1-.064-.222q0-.15.056-.343t.249-.731l.308-.849zm-17.21-2.927c-.863-.016-1.67.263-2.261.854-1.352 1.352-1.07 3.827.631 5.527 1.7 1.701 4.95 1.21 5.527.632.467-.466 1.07-3.827-.631-5.527-.957-.957-2.158-1.465-3.267-1.486zm12.285.358h.166v.21H15.4zm.427 0h.166v.865l.46-.455h.195l-.364.362.428.684h-.198l-.357-.575-.164.166v.41h-.166zm1.016 0h.166v.21h-.166zm.481.122h.166v.288h.172v.135h-.172v.717q0 .056.02.075.018.02.074.02a.2.2 0 0 0 .078-.01v.141a1 1 0 0 1-.136.014.23.23 0 0 1-.15-.043.15.15 0 0 1-.052-.123v-.79h-.141v-.136h.141zm-3.562.258q.121 0 .207.038.085.036.13.11a.26.26 0 0 1 .045.173h-.176q-.009-.167-.208-.167a.3.3 0 0 0-.164.041.13.13 0 0 0-.06.117q0 .053.045.088.045.036.15.06l.16.039a.47.47 0 0 1 .224.105q.07.069.07.186a.3.3 0 0 1-.052.175.33.33 0 0 1-.152.116.6.6 0 0 1-.226.041q-.205 0-.309-.088-.103-.089-.109-.269h.176q.006.056.017.084a.2.2 0 0 0 .034.054q.066.065.204.065a.3.3 0 0 0 .177-.045.14.14 0 0 0 .067-.119.12.12 0 0 0-.038-.09.3.3 0 0 0-.124-.055l-.156-.038a1 1 0 0 1-.159-.05.4.4 0 0 1-.098-.061.2.2 0 0 1-.058-.083.3.3 0 0 1-.016-.108q0-.144.109-.232a.45.45 0 0 1 .29-.087m1.035 0a.5.5 0 0 1 .202.043.35.35 0 0 1 .187.212.6.6 0 0 1 .023.126h-.168a.26.26 0 0 0-.078-.168.24.24 0 0 0-.17-.06.25.25 0 0 0-.155.05.3.3 0 0 0-.1.144.7.7 0 0 0-.034.224.6.6 0 0 0 .035.214.3.3 0 0 0 .101.135.26.26 0 0 0 .157.048q.213 0 .256-.252h.167a.5.5 0 0 1-.065.22.35.35 0 0 1-.146.138.5.5 0 0 1-.216.048.45.45 0 0 1-.246-.066.44.44 0 0 1-.161-.192.7.7 0 0 1-.057-.293q0-.128.032-.233a.5.5 0 0 1 .095-.182.4.4 0 0 1 .15-.117.45.45 0 0 1 .191-.04zm.603.03h.166v1.046H15.4zm1.443 0h.166v1.046h-.166zm-5.05.618q-.121 0-.356.611-.232.61-.459 1.71.422-.468.683-1.05.262-.58.262-.999a.46.46 0 0 0-.036-.197q-.038-.075-.093-.075zm4.662 1.797q-.332 0-.629.563-.296.564-.296 1.038 0 .18.088.29a.27.27 0 0 0 .223.111q.332 0 .625-.565.294-.566.294-1.043a.46.46 0 0 0-.083-.29.27.27 0 0 0-.222-.104m-2.848.007q-.219 0-.417.333-.2.332-.2.866.849-.238.849-.881 0-.318-.232-.318"/></svg></span></div>
+        <div class="card-media">
+          <span class="md-icon card-icon"
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.601 5.53c-1.91.035-3.981.91-5.63 2.56-2.93 2.93-2.083 8.53-1.088 9.525.805.804 6.595 1.843 9.526-1.088a10 10 0 0 0 .584-.643q.064-.437.489-1.106a1.9 1.9 0 0 1-.537.176q-.217.398-.676.855-.53.503-.76.656a.8.8 0 0 1-.437.152q-.524 0-.494-.924-.33.474-.612.7a.9.9 0 0 1-.578.224q-.292 0-.496-.273a1.03 1.03 0 0 1-.193-.507 4 4 0 0 1-.726.583q-.335.197-.74.197-.45 0-.727-.288a.98.98 0 0 1-.257-.524v.004q-.45.414-.79.611a1.3 1.3 0 0 1-.649.197.7.7 0 0 1-.571-.275q-.218-.275-.218-.739 0-.695.302-1.67.301-.976.733-1.797l.842-.312a.2.2 0 0 1 .06-.013q.095 0 .157.14.06.142.061.38 0 .677-.312 1.31-.31.633-.974 1.352-.027.345-.027.474 0 .289.106.458.107.17.282.169a.7.7 0 0 0 .382-.13q.198-.127.602-.523.04-.626.482-1.142.487-.57 1.08-.569.308 0 .494.16a.52.52 0 0 1 .186.417q0 .687-1.459 1.114.133.646.693.646a.8.8 0 0 0 .417-.117q.194-.115.575-.497.048-.378.259-.728.273-.45.701-.73.427-.278.756-.278.415 0 .58.381l.677-.374h.186l-.292.971q-.225.732-.226 1.004 0 .285.202.285.129 0 .285-.137.156-.138.437-.42v.001q.215-.233.392-.494-.285-.127-.285-.375 0-.255.174-.545.173-.29.479-.29.258 0 .258.265 0 .209-.149.596.55-.06.961-.842l.228-.01c1.059-2.438.828-5.075-.83-6.732-1.019-1.02-2.408-1.5-3.895-1.471m4.725 8.203a9 9 0 0 1-1.333 2.151 1 1 0 0 0-.012.147q0 .252.14.423.139.17.34.17.444-.001 1.254-.787-.002.06-.003.121 0 .219.036.666l.733-.172q0-.3.01-.474.016-.236.066-.517.03-.166.152-.315l.186-.216a5 5 0 0 1 .378-.397q.093-.083.162-.13a.26.26 0 0 1 .123-.046q.083 0 .083.106 0 .105-.156.497-.292.73-.292 1.084 0 .262.136.418a.45.45 0 0 0 .358.155q.548 0 1.313-.808v-.381q-.542.64-.784.64-.163 0-.163-.2 0-.15.195-.65.285-.73.285-1.048a.46.46 0 0 0-.112-.319.36.36 0 0 0-.282-.127q-.247 0-.567.233-.319.234-.863.84.08-.393.335-1.08l-.809.156a6.5 6.5 0 0 0-.399 1.074q-.06.234-.092.48a8 8 0 0 1-.49.45.38.38 0 0 1-.229.08.21.21 0 0 1-.174-.082.35.35 0 0 1-.064-.222q0-.15.056-.343t.249-.731l.308-.849zm-17.21-2.927c-.863-.016-1.67.263-2.261.854-1.352 1.352-1.07 3.827.631 5.527 1.7 1.701 4.95 1.21 5.527.632.467-.466 1.07-3.827-.631-5.527-.957-.957-2.158-1.465-3.267-1.486zm12.285.358h.166v.21H15.4zm.427 0h.166v.865l.46-.455h.195l-.364.362.428.684h-.198l-.357-.575-.164.166v.41h-.166zm1.016 0h.166v.21h-.166zm.481.122h.166v.288h.172v.135h-.172v.717q0 .056.02.075.018.02.074.02a.2.2 0 0 0 .078-.01v.141a1 1 0 0 1-.136.014.23.23 0 0 1-.15-.043.15.15 0 0 1-.052-.123v-.79h-.141v-.136h.141zm-3.562.258q.121 0 .207.038.085.036.13.11a.26.26 0 0 1 .045.173h-.176q-.009-.167-.208-.167a.3.3 0 0 0-.164.041.13.13 0 0 0-.06.117q0 .053.045.088.045.036.15.06l.16.039a.47.47 0 0 1 .224.105q.07.069.07.186a.3.3 0 0 1-.052.175.33.33 0 0 1-.152.116.6.6 0 0 1-.226.041q-.205 0-.309-.088-.103-.089-.109-.269h.176q.006.056.017.084a.2.2 0 0 0 .034.054q.066.065.204.065a.3.3 0 0 0 .177-.045.14.14 0 0 0 .067-.119.12.12 0 0 0-.038-.09.3.3 0 0 0-.124-.055l-.156-.038a1 1 0 0 1-.159-.05.4.4 0 0 1-.098-.061.2.2 0 0 1-.058-.083.3.3 0 0 1-.016-.108q0-.144.109-.232a.45.45 0 0 1 .29-.087m1.035 0a.5.5 0 0 1 .202.043.35.35 0 0 1 .187.212.6.6 0 0 1 .023.126h-.168a.26.26 0 0 0-.078-.168.24.24 0 0 0-.17-.06.25.25 0 0 0-.155.05.3.3 0 0 0-.1.144.7.7 0 0 0-.034.224.6.6 0 0 0 .035.214.3.3 0 0 0 .101.135.26.26 0 0 0 .157.048q.213 0 .256-.252h.167a.5.5 0 0 1-.065.22.35.35 0 0 1-.146.138.5.5 0 0 1-.216.048.45.45 0 0 1-.246-.066.44.44 0 0 1-.161-.192.7.7 0 0 1-.057-.293q0-.128.032-.233a.5.5 0 0 1 .095-.182.4.4 0 0 1 .15-.117.45.45 0 0 1 .191-.04zm.603.03h.166v1.046H15.4zm1.443 0h.166v1.046h-.166zm-5.05.618q-.121 0-.356.611-.232.61-.459 1.71.422-.468.683-1.05.262-.58.262-.999a.46.46 0 0 0-.036-.197q-.038-.075-.093-.075zm4.662 1.797q-.332 0-.629.563-.296.564-.296 1.038 0 .18.088.29a.27.27 0 0 0 .223.111q.332 0 .625-.565.294-.566.294-1.043a.46.46 0 0 0-.083-.29.27.27 0 0 0-.222-.104m-2.848.007q-.219 0-.417.333-.2.332-.2.866.849-.238.849-.881 0-.318-.232-.318"/></svg></span
+          >
+        </div>
         <div class="card-body">
           <h2>College Football Playoff Predictor</h2>
           <div class="card-meta">Python · Scikit-learn · XGBoost</div>
-          <p>Predictive Modeling Kaggle notebook using RandomForest and XGBoost</p>
+          <p>
+            Predictive Modeling Kaggle notebook using RandomForest and XGBoost
+          </p>
         </div>
       </div>
     </a>
-
-
-
   </div>
 
   <div class="social-links">
-    <a href="https://www.linkedin.com/in/peyton-pope/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
-      <span class="md-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg></span>
+    <a
+      href="https://www.linkedin.com/in/peyton-pope/"
+      class="social-icon"
+      aria-label="LinkedIn"
+      target="_blank"
+      rel="noopener"
+    >
+      <span class="md-icon"
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg></span
+      >
     </a>
-    
-    <a href="https://github.com/pdotpope" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener">
-      <span class="md-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg></span>
+
+    <a
+      href="https://github.com/pdotpope"
+      class="social-icon"
+      aria-label="GitHub"
+      target="_blank"
+      rel="noopener"
+    >
+      <span class="md-icon"
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg></span
+      >
     </a>
-    
-    <a href="mailto:peytonpope24@gmail.com" class="social-icon" aria-label="Email">
+
+    <a
+      href="mailto:peytonpope24@gmail.com"
+      class="social-icon"
+      aria-label="Email"
+    >
       <span class="md-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg></span>
     </a>
   </div>
 </section>
-
 
 
               </article>
